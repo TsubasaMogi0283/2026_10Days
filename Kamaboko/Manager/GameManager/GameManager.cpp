@@ -12,11 +12,11 @@ void Kamaboko::GameManager::Initialize() {
 	//シーンファクトリーの生成
 	abstractSceneFactory_ = std::make_unique<GameSceneFactory>();
 	//シーンごとに動作確認したいときはここを変えてね
-	currentGamaScene_ = abstractSceneFactory_->CreateScene("Title");
+	currentGamaScene_ = abstractSceneFactory_->CreateScene("Test");
 
 #ifdef _DEBUG
 	//デバッグ時はこっちに入れてね
-	currentGamaScene_ = abstractSceneFactory_->CreateScene("Title");
+	currentGamaScene_ = abstractSceneFactory_->CreateScene("Test");
 #endif // _DEBUG
 
 	//初期化
