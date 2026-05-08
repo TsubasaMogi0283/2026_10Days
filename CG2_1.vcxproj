@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Demo|x64">
+      <Configuration>Demo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{cf451278-00c1-4d36-95d3-b55ae87e0973}</ProjectGuid>
+    <RootNamespace>CG21</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Kamaboko</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)External\nlohmann;$(ProjectDir)External\DirectXTex;$(ProjectDir)External\ImGui</IncludePath>
+    <IntDir>$(SolutionDir)..\Generated\Obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\Generated\Outputs\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)External\nlohmann;$(ProjectDir)External\DirectXTex;$(ProjectDir)External\ImGui</IncludePath>
+    <IntDir>$(SolutionDir)..\Generated\Obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\Generated\Outputs\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">
+    <IncludePath>$(ProjectDir)External\nlohmann;$(ProjectDir)External\DirectXTex;$(ProjectDir)External\ImGui</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;USE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)Kamaboko\Audio;$(ProjectDir)Kamaboko\Lighting;$(ProjectDir)Kamaboko\Manager\ModelManager;$(ProjectDir)External\assimp\include;$(ProjectDir)Kamaboko\AdjustmentItems;$(ProjectDir)Kamaboko\Input;$(ProjectDir)Project\AllGameScene;$(ProjectDir)Kamaboko\Camera;$(ProjectDir)Kamaboko\Manager\TextureManager;$(ProjectDir)Kamaboko\Polygon\2D\Sprite;$(ProjectDir)Kamaboko\Math\WorldTransform;$(ProjectDir)Kamaboko\Polygon\3D\Model;$(ProjectDir)Kamaboko\Math\Quaternion;$(ProjectDir)Kamaboko\Math\Matrix\Calculation;$(ProjectDir)Kamaboko\Math\Vector\Calculation;$(ProjectDir)Kamaboko\SrvManager;$(ProjectDir)Kamaboko\Math\Shape;$(ProjectDir)Kamaboko\Polygon\3D\ModelData;$(ProjectDir)Kamaboko\Polygon\3D\MaterialData;$(ProjectDir)Kamaboko\Math\Collision;$(ProjectDir)Kamaboko\Manager\GameManager;$(ProjectDir)Kamaboko\Manager\ImGuiManager;$(ProjectDir)Kamaboko\Math\Transform;$(ProjectDir)Kamaboko\Manager\AnimationManager;$(ProjectDir)Kamaboko\Polygon\3D\AnimationModel;$(ProjectDir)Kamaboko\Manager\SrvManager;$(ProjectDir)Kamaboko\Polygon\3D\Particle3D;$(ProjectDir)Kamaboko\Common\DirectX;$(ProjectDir)Kamaboko\Math\Matrix;$(ProjectDir)Kamaboko\Common\Windows;$(ProjectDir)Kamaboko\Math\Vector;$(ProjectDir)Kamaboko\Manager\PipelineManager;$(ProjectDir)Kamaboko\Manager\RtvManager;$(ProjectDir)Kamaboko\Polygon\PostEffect\BackTest;$(ProjectDir)Kamaboko\Polygon\PostEffect\DepthBasedOutline;$(ProjectDir)Kamaboko\Polygon\PostEffect\Dissolve;$(ProjectDir)Kamaboko\Polygon\PostEffect\RandomEffect;$(ProjectDir)Kamaboko\Polygon\PostEffect\LuminanceBasedOutline;$(ProjectDir)Kamaboko\Polygon\PostEffect\RadialBlur;$(ProjectDir)Kamaboko\Polygon\PostEffect\GrayScale;$(ProjectDir)Kamaboko\Polygon\PostEffect\SepiaScale;$(ProjectDir)Kamaboko\Polygon\PostEffect\Vignette;$(ProjectDir)Kamaboko\Polygon\PostEffect\BoxFilter;$(ProjectDir)Kamaboko\Polygon\PostEffect\GaussianFilter;$(ProjectDir)Project;$(ProjectDir)Kamaboko\Math\Single;$(ProjectDir)Kamaboko\Manager\LevelDataManager;$(ProjectDir)Kamaboko\Material\Dissolve;$(ProjectDir)Kamaboko\Material;$(ProjectDir)Kamaboko\Manager\CollisionManager;$(ProjectDir)Project\CollisionConfig;$(ProjectDir)Kamaboko\StringOption;$(ProjectDir)Kamaboko\Math\Easing;$(ProjectDir)Kamaboko\GlobalVariables;$(ProjectDir)Kamaboko\Framework;$(ProjectDir)Kamaboko\Material\Vignette;$(ProjectDir)Kamaboko\Polygon\Particle;$(ProjectDir)Kamaboko\Math\PushBackCalculation;$(ProjectDir)Kamaboko\Convert;$(ProjectDir)Kamaboko\Material\RandomNoise</AdditionalIncludeDirectories>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxcompiler.dll" "$(TargetDir)dxcompiler.dll
+copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dxil.dll</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;USE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)Elysia\Audio;$(ProjectDir)Elysia\Lighting;$(ProjectDir)Elysia\Manager\ModelManager;$(ProjectDir)External\assimp\include;$(ProjectDir)Elysia\AdjustmentItems;$(ProjectDir)Elysia\Input;$(ProjectDir)Project\AllGameScene;$(ProjectDir)Elysia\Camera;$(ProjectDir)Elysia\Manager\TextureManager;$(ProjectDir)Elysia\Polygon\2D\Sprite;$(ProjectDir)Elysia\Math\WorldTransform;$(ProjectDir)Elysia\Polygon\3D\Model;$(ProjectDir)Elysia\Math\Quaternion;$(ProjectDir)Elysia\Math\Matrix\Calculation;$(ProjectDir)Elysia\Math\Vector\Calculation;$(ProjectDir)Elysia\SrvManager;$(ProjectDir)Elysia\Math\Shape;$(ProjectDir)Elysia\Polygon\3D\ModelData;$(ProjectDir)Elysia\Polygon\3D\MaterialData;$(ProjectDir)Elysia\Math\Collision;$(ProjectDir)Elysia\Manager\GameManager;$(ProjectDir)Elysia\Manager\ImGuiManager;$(ProjectDir)Elysia\Math\Transform;$(ProjectDir)Elysia\Manager\AnimationManager;$(ProjectDir)Elysia\Polygon\3D\AnimationModel;$(ProjectDir)Elysia\Manager\SrvManager;$(ProjectDir)Elysia\Polygon\3D\Particle3D;$(ProjectDir)Elysia\Common\DirectX;$(ProjectDir)Elysia\Math\Matrix;$(ProjectDir)Elysia\Common\Windows;$(ProjectDir)Elysia\Math\Vector;$(ProjectDir)Elysia\Manager\PipelineManager;$(ProjectDir)Elysia\Manager\RtvManager;$(ProjectDir)Elysia\Polygon\PostEffect\BackTest;$(ProjectDir)Elysia\Polygon\PostEffect\DepthBasedOutline;$(ProjectDir)Elysia\Polygon\PostEffect\Dissolve;$(ProjectDir)Elysia\Polygon\PostEffect\RandomEffect;$(ProjectDir)Elysia\Polygon\PostEffect\LuminanceBasedOutline;$(ProjectDir)Elysia\Polygon\PostEffect\RadialBlur;$(ProjectDir)Elysia\Polygon\PostEffect\GrayScale;$(ProjectDir)Elysia\Polygon\PostEffect\SepiaScale;$(ProjectDir)Elysia\Polygon\PostEffect\Vignette;$(ProjectDir)Elysia\Polygon\PostEffect\BoxFilter;$(ProjectDir)Elysia\Polygon\PostEffect\GaussianFilter;$(ProjectDir)Project;$(ProjectDir)Elysia\Math\Single;$(ProjectDir)Elysia\Manager\LevelDataManager;$(ProjectDir)Elysia\Material\Dissolve;$(ProjectDir)Elysia\Material;$(ProjectDir)Elysia\Manager\CollisionManager;$(ProjectDir)Project\CollisionConfig;$(ProjectDir)Elysia\StringOption;$(ProjectDir)Elysia\Math\Easing;$(ProjectDir)Elysia\GlobalVariables;$(ProjectDir)Elysia\Framework;$(ProjectDir)Elysia\Material\Vignette;$(ProjectDir)Elysia\Polygon\Particle;$(ProjectDir)Elysia\Math\PushBackCalculation;$(ProjectDir)Elysia\Convert;$(ProjectDir)Elysia\Material\RandomNoise</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <AdditionalLibraryDirectories>$(ProjectDir)External\assimp\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxcompiler.dll" "$(TargetDir)dxcompiler.dll
+copy "$(WindowsSdkDir)bin\$(TargetPlatformVersion)\x64\dxil.dll" "$(TargetDir)dxil.dll</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;USE_IMGUI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)Elysia\Audio;$(ProjectDir)Elysia\Lighting;$(ProjectDir)Elysia\Manager\ModelManager;$(ProjectDir)External\assimp\include;$(ProjectDir)Elysia\AdjustmentItems;$(ProjectDir)Elysia\Input;$(ProjectDir)Project\AllGameScene;$(ProjectDir)Elysia\Camera;$(ProjectDir)Elysia\Manager\TextureManager;$(ProjectDir)Elysia\Polygon\2D\Sprite;$(ProjectDir)Elysia\Math\WorldTransform;$(ProjectDir)Elysia\Polygon\3D\Model;$(ProjectDir)Elysia\Math\Quaternion;$(ProjectDir)Elysia\Math\Matrix\Calculation;$(ProjectDir)Elysia\Math\Vector\Calculation;$(ProjectDir)Elysia\SrvManager;$(ProjectDir)Elysia\Math\Shape;$(ProjectDir)Elysia\Polygon\3D\ModelData;$(ProjectDir)Elysia\Polygon\3D\MaterialData;$(ProjectDir)Elysia\Math\Collision;$(ProjectDir)Elysia\Manager\GameManager;$(ProjectDir)Elysia\Manager\ImGuiManager;$(ProjectDir)Elysia\Math\Transform;$(ProjectDir)Elysia\Manager\AnimationManager;$(ProjectDir)Elysia\Polygon\3D\AnimationModel;$(ProjectDir)Elysia\Manager\SrvManager;$(ProjectDir)Elysia\Polygon\3D\Particle3D;$(ProjectDir)Elysia\Common\DirectX;$(ProjectDir)Elysia\Math\Matrix;$(ProjectDir)Elysia\Common\Windows;$(ProjectDir)Elysia\Math\Vector;$(ProjectDir)Elysia\Manager\PipelineManager;$(ProjectDir)Elysia\Manager\RtvManager;$(ProjectDir)Elysia\Polygon\PostEffect\BackTest;$(ProjectDir)Elysia\Polygon\PostEffect\DepthBasedOutline;$(ProjectDir)Elysia\Polygon\PostEffect\Dissolve;$(ProjectDir)Elysia\Polygon\PostEffect\RandomEffect;$(ProjectDir)Elysia\Polygon\PostEffect\LuminanceBasedOutline;$(ProjectDir)Elysia\Polygon\PostEffect\RadialBlur;$(ProjectDir)Elysia\Polygon\PostEffect\GrayScale;$(ProjectDir)Elysia\Polygon\PostEffect\SepiaScale;$(ProjectDir)Elysia\Polygon\PostEffect\Vignette;$(ProjectDir)Elysia\Polygon\PostEffect\BoxFilter;$(ProjectDir)Elysia\Polygon\PostEffect\GaussianFilter;$(ProjectDir)Project;$(ProjectDir)Elysia\Math\Single;$(ProjectDir)Elysia\Manager\LevelDataManager;$(ProjectDir)Elysia\Material\Dissolve;$(ProjectDir)Elysia\Material;$(ProjectDir)Elysia\Manager\CollisionManager;$(ProjectDir)Project\CollisionConfig;$(ProjectDir)Elysia\StringOption;$(ProjectDir)Elysia\Math\Easing;$(ProjectDir)Elysia\GlobalVariables;$(ProjectDir)Elysia\Framework;$(ProjectDir)Elysia\Material\Vignette;$(ProjectDir)Elysia\Polygon\Particle;$(ProjectDir)Elysia\Math\PushBackCalculation;$(ProjectDir)Elysia\Convert;$(ProjectDir)Elysia\Material\RandomNoise</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Kamaboko\Audio\Audio.cpp" />
+    <ClCompile Include="Kamaboko\Camera\Camera.cpp" />
+    <ClCompile Include="Kamaboko\Common\DirectX\DirectXSetup.cpp" />
+    <ClCompile Include="Kamaboko\Common\Windows\WindowsSetup.cpp" />
+    <ClCompile Include="Kamaboko\Convert\Convert.cpp" />
+    <ClCompile Include="Kamaboko\Framework\Framework.cpp" />
+    <ClCompile Include="Kamaboko\GlobalVariables\GlobalVariables.cpp" />
+    <ClCompile Include="Kamaboko\Input\Input.cpp" />
+    <ClCompile Include="Kamaboko\Lighting\DirectionalLight.cpp" />
+    <ClCompile Include="Kamaboko\Lighting\PointLight.cpp" />
+    <ClCompile Include="Kamaboko\Lighting\SpotLight.cpp" />
+    <ClCompile Include="Kamaboko\Line\Line.cpp" />
+    <ClCompile Include="Kamaboko\main.cpp" />
+    <ClCompile Include="Kamaboko\Manager\AnimationManager\AnimationManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\CollisionManager\CollisionManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\GameManager\GameManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ImGuiManager\ImGuiManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\LevelDataManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\Model\AudioObjectForLevelEditor.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\Model\AudioObjectForLevelEditorCollider.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\Model\BaseObjectForLevelEditor.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\Model\StageObjectForLevelEditor.cpp" />
+    <ClCompile Include="Kamaboko\Manager\LevelDataManager\Model\StageObjectForLevelEditorCollider.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\Animation.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\Joint.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\ModelManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\ReadNode.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\Skeleton.cpp" />
+    <ClCompile Include="Kamaboko\Manager\ModelManager\SkinCluster.cpp" />
+    <ClCompile Include="Kamaboko\Manager\PipelineManager\PipelineManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\RtvManager\RtvManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\SrvManager\SrvManager.cpp" />
+    <ClCompile Include="Kamaboko\Manager\TextureManager\TextureManager.cpp" />
+    <ClCompile Include="Kamaboko\Material\Dissolve\Dissolve.cpp" />
+    <ClCompile Include="Kamaboko\Material\Material.cpp" />
+    <ClCompile Include="Kamaboko\Material\RandomNoise\RandomNoise.cpp" />
+    <ClCompile Include="Kamaboko\Material\Vignette\Vignette.cpp" />
+    <ClCompile Include="Kamaboko\Math\BPMCalculation\BPMSetting.cpp" />
+    <ClCompile Include="Kamaboko\Math\Collision\CollisionCalculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\Matrix\Calculation\Matrix4x4Calculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\PushBackCalculation\PushBackCalculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\Quaternion\Calculation\QuaternionCalculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\Single\SingleCalculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\Vector\Calculation\VectorCalculation.cpp" />
+    <ClCompile Include="Kamaboko\Math\WorldTransform\WorldTransform.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\2D\Sprite\Sprite.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\2D\Triangle\Triangle.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\AnimationModel\AnimationModel.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\InstancingModel\InstancingModel.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\Model\Model.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\Particle3D\Particle3D.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\SkyBox\SkyBox.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\3D\Sphere\Sphere.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\BackTest\BackTexture.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\BoxFilter\BoxFilter.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\Dissolve\DissolveEffect.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\GaussianFilter\GaussianFilter.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\GrayScale\GrayScale.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\LuminanceBasedOutline\LuminanceBasedOutline.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\RadialBlur\RadialBlur.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\RandomEffect\RandomNoisePostEffect.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\SepiaScale\SepiaScale.cpp" />
+    <ClCompile Include="Kamaboko\Polygon\PostEffect\Vignette\VignettePostEffect.cpp" />
+    <ClCompile Include="Kamaboko\StringOption\StringOption.cpp" />
+    <ClCompile Include="Project\AllGameScene\GameSceneFactory.cpp" />
+    <ClCompile Include="Project\AllGameScene\GameScene\BaseGameScene\Explanation\ExplanationGameScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\GameScene\BaseGameScene\Play\PlayGameScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\GameScene\BaseGameScene\Start\StartGameScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\LoseScene\BaseLoseScene\ContinueGameLoseScene\ContinueGameLoseScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\LoseScene\BaseLoseScene\LightUp\LightUpLoseScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\LoseScene\BaseLoseScene\ReturnTitleLoseScene\ReturnTitleLoseScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\LoseScene\BaseLoseScene\SelectLoseScene\SelectLoseScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\LoseScene\LoseScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TestScene\TestScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseBackTexture\BaseTitleBackTexture.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseBackTexture\Night\NightBackTexture.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseBackTexture\Sunset\SunsetBackTexture.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseTitleScene\Noise\NoiseTitleScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseTitleScene\Start\StartTitleScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseTitleScene\ToGame\ToGameTitleScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\BaseTitleScene\Waiting\WaitingTitleScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\WinScene\BaseWinScene\ReturnTitleWinScene\ReturnTitleWinScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\WinScene\BaseWinScene\SelectWinScene\SelectWinScene.cpp" />
+    <ClCompile Include="Project\AllGameScene\WinScene\WinScene.cpp" />
+    <ClCompile Include="Project\Enemy\EnemyManager.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\EnemyAttackCollision.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\EnemyFlashLightCollision.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\NormalEnemy.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\State\NormalEnemyAttack.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\State\NormalEnemyMove.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\State\NormalEnemyNoneMove.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\State\NormalEnemyPreTracking.cpp" />
+    <ClCompile Include="Project\Enemy\NormalEnemy\State\NormalEnemyTracking.cpp" />
+    <ClCompile Include="Project\Enemy\StrongEnemy\State\StrongEnemyMove.cpp" />
+    <ClCompile Include="Project\Enemy\StrongEnemy\State\StrongEnemyNoneMove.cpp" />
+    <ClCompile Include="Project\Enemy\StrongEnemy\State\StrongEnemyTracking.cpp" />
+    <ClCompile Include="Project\Enemy\StrongEnemy\StrongEnemy.cpp" />
+    <ClCompile Include="Project\Enemy\StrongEnemy\StrongEnemyCollisionToPlayer.cpp" />
+    <ClCompile Include="Project\EscapeAssistArrow\EscapeAssistArrow.cpp" />
+    <ClCompile Include="Project\Key\Key.cpp" />
+    <ClCompile Include="Project\Key\KeyManager.cpp" />
+    <ClCompile Include="Project\Light\FlashLight\FlashLight.cpp" />
+    <ClCompile Include="Project\Light\FlashLight\FlashLightCollision.cpp" />
+    <ClCompile Include="Project\Player\AudioTestPlayer.cpp" />
+    <ClCompile Include="Project\Player\BasedPlayerCollision.cpp" />
+    <ClCompile Include="Project\Player\Camera\PlayerCamera.cpp" />
+    <ClCompile Include="Project\Player\Player.cpp" />
+    <ClCompile Include="Project\Player\PlayerCollisionToAudioObject.cpp" />
+    <ClCompile Include="Project\Player\PlayerCollisionToNormalEnemyAttack.cpp" />
+    <ClCompile Include="Project\Player\PlayerCollisionToStageObject.cpp" />
+    <ClCompile Include="Project\Player\PlayerCollisionToStrongEnemy.cpp" />
+    <ClCompile Include="Project\RailCamera\TitleRailCamera.cpp" />
+    <ClCompile Include="Project\Stage\Door\Door.cpp" />
+    <ClCompile Include="Project\Stage\Gate\Gate.cpp" />
+    <ClCompile Include="Project\Stage\PoltergeistBone\PoltergeistBone.cpp" />
+    <ClCompile Include="Project\Stage\SurpriseEye\SurpriseEye.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Resources\Shader\AnimationObject3D\AnimationObject3D.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\AnimationObject3D\AnimationObject3D.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\BoxFilter\BoxFilter.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\BoxFilter\BoxFilter.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\DepthBasedOutline\DepthBasedOutline.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\DepthBasedOutline\DepthBasedOutline.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Dissolve\Dissolve.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Dissolve\Dissolve.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\FullScreen\FullScreen.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\FullScreen\FullScreen.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\GaussianFilter\GaussianFilter.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\GaussianFilter\GaussianFilter.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\GrayScale\GrayScale.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\GrayScale\GrayScale.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Line3D\Line3D.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Line3D\Line3D.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\LuminanceBasedOutline\LuminanceBasedOutline.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\LuminanceBasedOutline\LuminanceBasedOutline.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Object2D\Object2d.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Object2D\Object2d.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Object3D\Object3d.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Object3D\Object3d.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Particle3D\Particle3d.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Particle3D\Particle3d.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\RadialBlur\RadialBlur.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\RadialBlur\RadialBlur.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\RandomEffect\RandomEffect.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\RandomEffect\RandomEffect.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\SepiaScale\SepiaScale.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\SepiaScale\SepiaScale.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\SkyBox\SkyBox.PS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">Pixel</ShaderType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\SkyBox\SkyBox.VS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">Vertex</ShaderType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Vignette\Vignette.PS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\Vignette\Vignette.VS.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Demo|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Kamaboko\Audio\Audio.h" />
+    <ClInclude Include="Kamaboko\Audio\AudioInformation.h" />
+    <ClInclude Include="Kamaboko\Camera\Camera.h" />
+    <ClInclude Include="Kamaboko\Common\DirectX\DirectXSetup.h" />
+    <ClInclude Include="Kamaboko\Common\Windows\WindowsSetup.h" />
+    <ClInclude Include="Kamaboko\Convert\Convert.h" />
+    <ClInclude Include="Kamaboko\Framework\Framework.h" />
+    <ClInclude Include="Kamaboko\GlobalVariables\GlobalVariables.h" />
+    <ClInclude Include="Kamaboko\Input\Input.h" />
+    <ClInclude Include="Kamaboko\Input\MouseInformation.h" />
+    <ClInclude Include="Kamaboko\Lighting\DirectionalLight.h" />
+    <ClInclude Include="Kamaboko\Lighting\LightingType.h" />
+    <ClInclude Include="Kamaboko\Lighting\PointLight.h" />
+    <ClInclude Include="Kamaboko\Lighting\SpotLight.h" />
+    <ClInclude Include="Kamaboko\Line\Line.h" />
+    <ClInclude Include="Kamaboko\Manager\AnimationManager\AnimationManager.h" />
+    <ClInclude Include="Kamaboko\Manager\CollisionManager\Collider.h" />
+    <ClInclude Include="Kamaboko\Manager\CollisionManager\CollisionManager.h" />
+    <ClInclude Include="Kamaboko\Manager\GameManager\GameManager.h" />
+    <ClInclude Include="Kamaboko\Manager\GameManager\IAbstractSceneFactory.h" />
+    <ClInclude Include="Kamaboko\Manager\GameManager\IGameScene.h" />
+    <ClInclude Include="Kamaboko\Manager\ImGuiManager\ImGuiManager.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\LevelDataManager.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Listener.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\AudioObjectForLevelEditor.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\AudioObjectForLevelEditorCollider.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\BaseObjectForLevelEditor.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\IObjectForLevelEditorCollider.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\StageObjectForLevelEditor.h" />
+    <ClInclude Include="Kamaboko\Manager\LevelDataManager\Model\StageObjectForLevelEditorCollider.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\Animation.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\Joint.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\JoinWeightData.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\KeyFrame.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\ModelData.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\ModelManager.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\Node.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\NodeAnimation.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\ReadNode.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\Skeleton.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\SkinCluster.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\VertexInfluence.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\VertexWeightData.h" />
+    <ClInclude Include="Kamaboko\Manager\ModelManager\WellForGPU.h" />
+    <ClInclude Include="Kamaboko\Manager\PipelineManager\BlendMode.h" />
+    <ClInclude Include="Kamaboko\Manager\PipelineManager\PipelineManager.h" />
+    <ClInclude Include="Kamaboko\Manager\RtvManager\RtvManager.h" />
+    <ClInclude Include="Kamaboko\Manager\SrvManager\SrvManager.h" />
+    <ClInclude Include="Kamaboko\Manager\TextureManager\TextureManager.h" />
+    <ClInclude Include="Kamaboko\Material\Color.h" />
+    <ClInclude Include="Kamaboko\Material\Dissolve\Dissolve.h" />
+    <ClInclude Include="Kamaboko\Material\Material.h" />
+    <ClInclude Include="Kamaboko\Material\RandomNoise\RandomNoise.h" />
+    <ClInclude Include="Kamaboko\Material\Vignette\Vignette.h" />
+    <ClInclude Include="Kamaboko\Math\BPMCalculation\BPMSetting.h" />
+    <ClInclude Include="Kamaboko\Math\Collision\CollisionCalculation.h" />
+    <ClInclude Include="Kamaboko\Math\Easing\Easing.h" />
+    <ClInclude Include="Kamaboko\Math\Matrix\Calculation\Matrix4x4Calculation.h" />
+    <ClInclude Include="Kamaboko\Math\Matrix\Matrix3x3.h" />
+    <ClInclude Include="Kamaboko\Math\Matrix\Matrix4x4.h" />
+    <ClInclude Include="Kamaboko\Math\Matrix\TransformationMatrix.h" />
+    <ClInclude Include="Kamaboko\Math\PushBackCalculation\PushBackCalculation.h" />
+    <ClInclude Include="Kamaboko\Math\Quaternion\Calculation\QuaternionCalculation.h" />
+    <ClInclude Include="Kamaboko\Math\Quaternion\Quaternion.h" />
+    <ClInclude Include="Kamaboko\Math\Shape\AABB.h" />
+    <ClInclude Include="Kamaboko\Math\Shape\Fan.h" />
+    <ClInclude Include="Kamaboko\Math\Shape\Plane.h" />
+    <ClInclude Include="Kamaboko\Math\Shape\SphereShape.h" />
+    <ClInclude Include="Kamaboko\Math\Single\SingleCalculation.h" />
+    <ClInclude Include="Kamaboko\Math\Transform\EulerTransform.h" />
+    <ClInclude Include="Kamaboko\Math\Transform\QuaternionTransform.h" />
+    <ClInclude Include="Kamaboko\Math\Transform\Transform.h" />
+    <ClInclude Include="Kamaboko\Math\Vector\Calculation\VectorCalculation.h" />
+    <ClInclude Include="Kamaboko\Math\Vector\Vector2.h" />
+    <ClInclude Include="Kamaboko\Math\Vector\Vector3.h" />
+    <ClInclude Include="Kamaboko\Math\Vector\Vector4.h" />
+    <ClInclude Include="Kamaboko\Math\Vector\VertexData.h" />
+    <ClInclude Include="Kamaboko\Math\WorldTransform\WorldTransform.h" />
+    <ClInclude Include="Kamaboko\Polygon\2D\Sprite\Sprite.h" />
+    <ClInclude Include="Kamaboko\Polygon\2D\Triangle\Triangle.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\AnimationModel\AnimationModel.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\InstancingModel\InstancingModel.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\Model\Model.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\Particle3D\AccelerationField.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\Particle3D\Particle.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\Particle3D\Particle3D.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\SkyBox\SkyBox.h" />
+    <ClInclude Include="Kamaboko\Polygon\3D\Sphere\Sphere.h" />
+    <ClInclude Include="Kamaboko\Polygon\Particle\Emitter.h" />
+    <ClInclude Include="Kamaboko\Polygon\Particle\ParticleMoveType.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\BackTest\BackTexture.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\BoxFilter\BoxFilter.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\Dissolve\DissolveEffect.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\GaussianFilter\GaussianFilter.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\GrayScale\GrayScale.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\LuminanceBasedOutline\LuminanceBasedOutline.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\RadialBlur\RadialBlur.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\RandomEffect\RandomNoisePostEffect.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\SepiaScale\SepiaScale.h" />
+    <ClInclude Include="Kamaboko\Polygon\PostEffect\Vignette\VignettePostEffect.h" />
+    <ClInclude Include="Kamaboko\StringOption\StringOption.h" />
+    <ClInclude Include="Project\AllGameScene\GameSceneFactory.h" />
+    <ClInclude Include="Project\AllGameScene\GameScene\BaseGameScene\BaseGameScene.h" />
+    <ClInclude Include="Project\AllGameScene\GameScene\BaseGameScene\Explanation\ExplanationGameScene.h" />
+    <ClInclude Include="Project\AllGameScene\GameScene\BaseGameScene\Play\PlayGameScene.h" />
+    <ClInclude Include="Project\AllGameScene\GameScene\BaseGameScene\Start\StartGameScene.h" />
+    <ClInclude Include="Project\AllGameScene\GameScene\GameScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\BaseLoseScene\BaseLoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\BaseLoseScene\ContinueGameLoseScene\ContinueGameLoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\BaseLoseScene\LightUp\LightUpLoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\BaseLoseScene\ReturnTitleLoseScene\ReturnTitleLoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\BaseLoseScene\SelectLoseScene\SelectLoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\LoseScene\LoseScene.h" />
+    <ClInclude Include="Project\AllGameScene\TestScene\TestScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseBackTexture\BaseTitleBackTexture.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseBackTexture\Night\NightBackTexture.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseBackTexture\Sunset\SunsetBackTexture.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseTitleScene\BaseTitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseTitleScene\Noise\NoiseTitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseTitleScene\Start\StartTitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseTitleScene\ToGame\ToGameTitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\BaseTitleScene\Waiting\WaitingTitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Project\AllGameScene\WinScene\BaseWinScene\BaseWinScene.h" />
+    <ClInclude Include="Project\AllGameScene\WinScene\BaseWinScene\ReturnTitleWinScene\ReturnTitleWinScene.h" />
+    <ClInclude Include="Project\AllGameScene\WinScene\BaseWinScene\SelectWinScene\SelectWinScene.h" />
+    <ClInclude Include="Project\AllGameScene\WinScene\WinScene.h" />
+    <ClInclude Include="Project\CollisionConfig\CollisionConfig.h" />
+    <ClInclude Include="Project\Enemy\BaseEnemy.h" />
+    <ClInclude Include="Project\Enemy\EnemyCondition.h" />
+    <ClInclude Include="Project\Enemy\EnemyManager.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\EnemyAttackCollision.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\EnemyFlashLightCollision.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\NormalEnemy.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\BaseNormalEnemyState.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\NormalEnemyAttack.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\NormalEnemyMove.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\NormalEnemyNoneMove.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\NormalEnemyPreTracking.h" />
+    <ClInclude Include="Project\Enemy\NormalEnemy\State\NormalEnemyTracking.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\State\BaseStongEnemyState.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\State\StrongEnemyMove.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\State\StrongEnemyNoneMove.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\State\StrongEnemyTracking.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\StrongEnemy.h" />
+    <ClInclude Include="Project\Enemy\StrongEnemy\StrongEnemyCollisionToPlayer.h" />
+    <ClInclude Include="Project\EscapeAssistArrow\EscapeAssistArrow.h" />
+    <ClInclude Include="Project\Key\Key.h" />
+    <ClInclude Include="Project\Key\KeyManager.h" />
+    <ClInclude Include="Project\Light\FlashLight\FlashLight.h" />
+    <ClInclude Include="Project\Light\FlashLight\FlashLightCollision.h" />
+    <ClInclude Include="Project\Player\AudioTestPlayer.h" />
+    <ClInclude Include="Project\Player\BasePlayerCollision.h" />
+    <ClInclude Include="Project\Player\Camera\PlayerCamera.h" />
+    <ClInclude Include="Project\Player\Player.h" />
+    <ClInclude Include="Project\Player\PlayerCollisionToAudioObject.h" />
+    <ClInclude Include="Project\Player\PlayerCollisionToNormalEnemyAttack.h" />
+    <ClInclude Include="Project\Player\PlayerCollisionToStageObject.h" />
+    <ClInclude Include="Project\Player\PlayerCollisionToStrongEnemy.h" />
+    <ClInclude Include="Project\RailCamera\TitleRailCamera.h" />
+    <ClInclude Include="Project\Stage\Door\Door.h" />
+    <ClInclude Include="Project\Stage\Gate\Gate.h" />
+    <ClInclude Include="Project\Stage\PoltergeistBone\PoltergeistBone.h" />
+    <ClInclude Include="Project\Stage\SurpriseEye\SurpriseEye.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="Resources\Shader\AnimationObject3D\AnimationObject3D.hlsli" />
+    <None Include="Resources\Shader\BoxFilter\BoxFilter.hlsli" />
+    <None Include="Resources\Shader\BoxFilter\SmoothingIndex.hlsli" />
+    <None Include="Resources\Shader\DepthBasedOutline\DepthBasedOutline.hlsli" />
+    <None Include="Resources\Shader\Dissolve\Dissolve.hlsli" />
+    <None Include="Resources\Shader\FullScreen\EffectType.hlsli" />
+    <None Include="Resources\Shader\FullScreen\FullScreen.hlsli" />
+    <None Include="Resources\Shader\FullScreen\Kernel.hlsli" />
+    <None Include="Resources\Shader\FullScreen\SmoothingIndex.hlsli" />
+    <None Include="Resources\Shader\GaussianFilter\GaussianFilter.hlsli" />
+    <None Include="Resources\Shader\GaussianFilter\Kernel.hlsli" />
+    <None Include="Resources\Shader\GaussianFilter\SmoothingIndex.hlsli" />
+    <None Include="Resources\Shader\GrayScale\GrayScale.hlsli" />
+    <None Include="Resources\Shader\Line3D\Line3D.hlsli" />
+    <None Include="Resources\Shader\LuminanceBasedOutline\LuminanceBasedOutline.hlsli" />
+    <None Include="Resources\Shader\Object2D\Object2d.hlsli" />
+    <None Include="Resources\Shader\Object3D\Object3d.hlsli">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Resources\Shader\Particle3D\Particle3D.hlsli" />
+    <None Include="Resources\Shader\RadialBlur\RadialBlur.hlsli" />
+    <None Include="Resources\Shader\RandomEffect\RandomEffect.hlsli" />
+    <None Include="Resources\Shader\SepiaScale\SepiaScale.hlsli" />
+    <None Include="Resources\Shader\SkyBox\SkyBox.hlsli" />
+    <None Include="Resources\Shader\Vignette\Vignette.hlsli" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="External\DirectXTex\DirectXTex_Desktop_2022_Win10.vcxproj">
+      <Project>{371b9fa9-4c90-4ac6-a123-aced756d6c77}</Project>
+    </ProjectReference>
+    <ProjectReference Include="External\ImGui\ImGui.vcxproj">
+      <Project>{4a762db2-1e1d-47d2-851f-de22b87c24d0}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Kamaboko\Audio\AudioMemo.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
